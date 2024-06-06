@@ -27,7 +27,7 @@ A simple real-time chat application using Node.js, Express, Socket.io, and SQLit
 
 ```bash
 git clone https://github.com/clinton-mwachia/socketio-chat-app.git
-cd socketio-chat-app.git
+cd socketio-chat-app
 ```
 
 2. Install dependencies:
