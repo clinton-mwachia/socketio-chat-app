@@ -105,9 +105,98 @@
         margin-left: 20%; /* Adjust margin to accommodate sidebar width */
         padding: 20px;
       }
+
+      /* Styles for the top bar */
+      .top-bar {
+        margin-left: 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+      }
+
+      .search-container {
+        flex-grow: 1;
+      }
+
+      .search-container input[type="text"] {
+        width: 200px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .user-profile {
+        display: flex;
+        align-items: center;
+      }
+
+      .user-profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .user-profile span {
+        margin-left: 10px;
+      }
+
+      .user-profile input[type="file"] {
+        display: none;
+      }
+
+      /* Styles for the sidebar */
+      .sidebar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #f4f4f4;
+        padding: 10px;
+        box-sizing: border-box;
+        border-right: 1px solid #ddd;
+      }
+
+      .sidebar h2 {
+        font-size: 1.2em;
+        margin: 0 0 10px;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        padding: 5px 0;
+      }
+
+      .sidebar button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
+    <div class="top-bar">
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Search messages" />
+      </div>
+      <div class="user-profile">
+        <img id="profile-pic" src="default-profile.png" alt="Profile Picture" />
+        <span id="username">User</span>
+        <input type="file" id="file-input" accept="image/*" />
+      </div>
+    </div>
     <div class="sidebar">
       <h4>Online</h4>
       <ul id="online-users"></ul>
@@ -212,6 +301,39 @@
 
       socket.on("chats deleted", () => {
         messages.innerHTML = "";
+      });
+
+      // Handle profile picture click
+      document.getElementById("profile-pic").addEventListener("click", () => {
+        document.getElementById("file-input").click();
+      });
+      document.getElementById("username").textContent = nickname;
+      // Handle profile picture change
+      document
+        .getElementById("file-input")
+        .addEventListener("change", (event) => {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("profile-pic").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+      // Handle message search
+      document.getElementById("search").addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase();
+        const messages = document.querySelectorAll("#messages li");
+        messages.forEach((msg) => {
+          const messageText = msg.textContent.toLowerCase();
+          if (messageText.includes(searchTerm)) {
+            msg.style.display = "block";
+          } else {
+            msg.style.display = "none";
+          }
+        });
       });
     </script>
   </body>
