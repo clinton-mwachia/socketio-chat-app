@@ -9,6 +9,8 @@ A simple real-time chat application using Node.js, Express, Socket.io, and SQLit
 - "User is typing" functionality
 - Online users list with active status indicator
 - Delete all chats functionality
+- search for messages.
+- Upload display picture.
 
 ## Screenshot
 
