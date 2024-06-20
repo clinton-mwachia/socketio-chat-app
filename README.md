@@ -30,22 +30,52 @@ A simple real-time chat application using Node.js, Express, Socket.io, and SQLit
 
 ```bash
 git clone https://github.com/clinton-mwachia/socketio-chat-app.git
-cd socketio-chat-app/javascript
 ```
 
-2. Install dependencies:
+## [Javascript]
+
+2. Change directory
+
+```
+cd socketio-chat-app/Javascript
+```
+
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Start the application:
+4. Start the application:
 
 ```bash
 node index.js
 ```
 
-4. Open your browser and navigate to `http://localhost:3000`
+5. Open your browser and navigate to `http://localhost:3000`
+
+## [Go]
+
+6. Change directory
+
+```
+cd socketio-chat-app/Go
+```
+
+7. Install dependencies:
+
+```bash
+go mod tidy
+```
+
+8. Start the application:
+
+```bash
+go run main.go
+```
+
+9. Open your browser and navigate to `http://localhost:8000`
+
 
 ## Usage
 
