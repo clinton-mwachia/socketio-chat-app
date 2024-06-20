@@ -22,6 +22,7 @@ A simple real-time chat application using Node.js, Express, Socket.io, and SQLit
 
 - Node.js
 - npm (Node Package Manager)
+- Golang
 
 ### Installation
 
@@ -29,7 +30,7 @@ A simple real-time chat application using Node.js, Express, Socket.io, and SQLit
 
 ```bash
 git clone https://github.com/clinton-mwachia/socketio-chat-app.git
-cd socketio-chat-app
+cd socketio-chat-app/javascript
 ```
 
 2. Install dependencies:
@@ -57,12 +58,14 @@ node index.js
 ## Project Structure
 
 ```plaintext
-.
-├── index.js                # Main server-side application file
-├── public/index.html            # Main client-side HTML file
-├── public/styles.css            # Client-side CSS file
-├── package.json          # NPM package configuration file
-└── README.md             # This README file
+Javascript
+    ├── index.js              # Main server-side application file
+    ├── public/index.html     # Main client-side HTML file
+    ├── public/styles.css     # Client-side CSS file
+    ├── package.json          # NPM package configuration file
+    └── README.md             # This README file
+Go
+    ├── main.go               # Main server-side application file
 ```
 
 ## Code Highlights
